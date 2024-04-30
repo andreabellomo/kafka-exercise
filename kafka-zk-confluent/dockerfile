@@ -1,0 +1,13 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Copia il codice Python e i requisiti nel container
+COPY producer.py .
+COPY requirements.txt .
+
+# Installa le dipendenze
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Esegui lo script Python quando il container viene avviato
+CMD ["python", "producer.py"]
